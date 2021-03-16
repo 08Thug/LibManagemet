@@ -10,7 +10,11 @@ export const getBookListAPI = async (type, page, offset) => {
   
     return new Promise((resolve, reject) => {
       axios
-        .get(url)
+        .get(url,{
+          headers: {
+              'Accept': 'application/json'
+              'Content-Type': 'application/json',
+                    }})
         .then((response) => {
           console.log("BOOK_LIST response", JSON.stringify(response));
           if (response.data.status == true) {
